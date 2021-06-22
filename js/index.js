@@ -1,5 +1,3 @@
-// TODO: nach einem Roll den winner displayen überall
-
 const nameColumn = document.getElementById("name-container");
 const winner = document.getElementById("winner-output");
 const number = document.getElementById("number-output");
