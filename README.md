@@ -8,3 +8,11 @@ It features:
 - Showing which number was rolled and which username had that number
 - A list of the last 4 winners at the bottom of the screen
 - Not even my watermark, but it would be nice if you told chat who made this :)
+
+
+Planned Updates for later versions:
+- A roll counter that shows how many rolls you've done
+- maybe a counter that shows you how many entries have been submitted to see what the maximum amount of rolls is
+
+
+# Please feel free to leave suggestions for more features, more pictures on the site etc.
