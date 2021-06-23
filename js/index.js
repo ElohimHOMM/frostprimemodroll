@@ -85,26 +85,33 @@ function addPrev(won) {
 }
 
 function createInputFields() {
-    // clears previous child to allow for a dynamic amount of input fields
-    let nameContainer = document.getElementById("name-container");
-    let child = nameContainer.lastChild;
-    if (nameContainer.hasChildNodes()) child.remove();
+    clearChildren();
 
-    let row = document.createElement("div");
-    row.id = "garbage";
-    let rowCounter = 4;
+    let container = document.createElement("div");
+    container.id = "user-container";
     let min = document.getElementById("min").value;
     let max = document.getElementById("max").value;
-    for (let i = min - 1; i < max; i++) {
-        if (rowCounter == 4) {
-            nameColumn.appendChild(row);
-            row.id = "row-" + Math.floor(i / 4);
-            row.className = "row";
-            rowcounter = 0;
+
+    // allows the input fields to be counted vertically
+    for (let i = min - 1; i < Math.ceil(max / 4); i++) {
+        let div = document.createElement("div");
+        for (let j = 0; j < 4; j++) {
+            let num = i + j * Math.ceil(max / 4);
+            if (num < max) {
+                div.className = "d-flex flex-row";
+                div.id = "input-fields";
+                addContentToRow(num, div);
+            }
         }
-        addContentToRow(i, row);
-        rowcounter++;
+        container.appendChild(div);
     }
+    nameColumn.appendChild(container);
+}
+
+function clearChildren() {
+    // clears previous child to allow for a dynamic amount of input fields
+    let nameContainer = document.getElementById("user-container");
+    if (nameContainer) nameContainer.remove();
 }
 
 function addContentToRow(i, row) {
