@@ -111,12 +111,11 @@ function addContentToRow(i, row) {
 
     let col = document.createElement("col");
     col.id = "col-entry-" + i;
-    col.className = "col-3 py-1";
+    col.className = "col-3 py-1 d-flex flex-row justify-content-start";
 
     let input = document.createElement("input");
     input.type = "text";
     input.id = "text-input-for-" + i;
-    input.className = "d-flex justify-content-end";
 
     col.appendChild(span);
     col.appendChild(input);
