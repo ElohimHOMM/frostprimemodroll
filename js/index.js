@@ -2,6 +2,7 @@ const nameColumn = document.getElementById("name-container");
 const winner = document.getElementById("winner-output");
 const number = document.getElementById("number-output");
 const prevs = document.getElementById("previous-winners");
+const currentMod = document.getElementById("current-mod");
 
 const NO_WINNER = "No Winner";
 
@@ -50,6 +51,7 @@ function printResults(id, lastWinner) {
     number.textContent = id;
     if (lastWinner != NO_WINNER) {
         addPrev(lastWinner);
+        currentMod.textContent = lastWinner;
     }
     winner.textContent = lastWinner;
 }
