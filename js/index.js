@@ -27,7 +27,7 @@ function roll() {
 }
 
 function paint(id) {
-    // in the case that the max and min has switched after there's a winner...
+    // in the case that the max and min have switched after there's a winner...
     let lastWinner = document.getElementById("col-entry-" + lastWinnerId);
     if (lastWinner) lastWinner.style.background = "#00000000";
 
@@ -85,7 +85,7 @@ function addPrev(won) {
 }
 
 function createInputFields() {
-    // Clears previous child to Allow for a dynamic amount of input fields
+    // clears previous child to allow for a dynamic amount of input fields
     let nameContainer = document.getElementById("name-container");
     let child = nameContainer.lastChild;
     if (nameContainer.hasChildNodes()) child.remove();
