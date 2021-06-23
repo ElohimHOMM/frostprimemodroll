@@ -27,11 +27,15 @@ function roll() {
 }
 
 function paint(id) {
-    document.getElementById("col-entry-" + lastWinnerId).style.background =
-        "#00000000";
+    // in the case that the max and min has switched after there's a winner...
+    let lastWinner = document.getElementById("col-entry-" + lastWinnerId);
+    if (lastWinner) lastWinner.style.background = "#00000000";
+
     let div = document.getElementById("col-entry-" + id);
-    div.style.background = "#019b09";
-    lastWinnerId = id;
+    if (div) {
+        div.style.background = "#019b09";
+        lastWinnerId = id;
+    }
 }
 
 function getWinner(id) {
