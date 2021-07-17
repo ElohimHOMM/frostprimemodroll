@@ -3,22 +3,33 @@ body {
     user-select: none;
 }
 
+#page-container {
+    overflow-y: auto;
+    overflow-x: hidden;
+    position: relative;
+    min-height: 100vh;
+}
+
+.content-wrap {
+    padding-bottom: 2.5rem;
+}
+
 .container {
     margin-top: 25px;
+    height:100%
 }
 
 span {
     width: 2em;
 }
 
-#bottom {
-    position: fixed;
+.footer {
+    position: absolute;
+    width: 100%;
+    height: 2.5rem;
     bottom: 0;
     background-color: #9e9e9e;
-    width: 100%;
-    left: 0;
     color: rgb(0, 0, 0);
-    z-index: 7;
 }
 
 .button {
