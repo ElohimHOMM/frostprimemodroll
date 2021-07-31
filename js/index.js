@@ -9,22 +9,34 @@ const NO_WINNER = "No Winner";
 const previousWinners = ["", "", "", ""];
 
 let lastWinnerId = 0;
+let mySound;
 
 function init() {
     createInputFields();
     document.getElementById("roll-button").addEventListener("click", roll);
+    mySound = new drumroll("./sound/drumroll.mp3");
+    setVolume();
+}
+
+function setVolume() {
+    mySound.volume();
 }
 
 function roll() {
     let min = document.getElementById("min").value;
     let max = document.getElementById("max").value;
-    let result = Math.floor(
-        Math.random() * (parseInt(max) - parseInt(min) + 1) + parseInt(min)
-    );
 
-    paint(result - 1);
-    let lastWinner = getWinner(result - 1);
-    printResults(result, lastWinner);
+    mySound.play();
+
+    setTimeout(() => {
+        let result = Math.floor(
+            Math.random() * (parseInt(max) - parseInt(min) + 1) + parseInt(min)
+        );
+
+        paint(result - 1);
+        let lastWinner = getWinner(result - 1);
+        printResults(result, lastWinner);
+    }, 3000);
 }
 
 function paint(id) {
@@ -133,4 +145,26 @@ function addContentToRow(i, row) {
     col.appendChild(span);
     col.appendChild(input);
     row.appendChild(col);
+}
+
+// yoinked from https://www.w3schools.com/graphics/game_sound.asp
+function drumroll(src) {
+    this.sound = document.createElement("audio");
+    this.sound.src = src;
+    this.sound.setAttribute("preload", "auto");
+    this.sound.setAttribute("controls", "none");
+    this.sound.style.display = "none";
+    document.body.appendChild(this.sound);
+    this.play = function () {
+        this.sound.play();
+    };
+    this.stop = function () {
+        this.sound.pause();
+    };
+    // sets the volume based on range slider
+    this.volume = function () {
+        let slider = document.getElementById("drum-roll-volume");
+        let volume = slider.value / 100.0;
+        this.sound.volume = volume;
+    };
 }
